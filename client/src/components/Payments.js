@@ -6,6 +6,7 @@ import * as actions from '../actions';
 class Payments extends Component {
   render() {
     return (
+      // stripe checkout component
       <StripeCheckout
         name='Emaily'
         description='$5 for 5 email credits'
