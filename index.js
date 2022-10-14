@@ -18,8 +18,7 @@ app.use(
   cookieSession({
     name: 'session',
     keys: [process.env.SESSION_SECRET],
-    // Cookie Options
-    maxAge: 30 * 24 * 60 * 60 * 1000, // 24 hours
+    maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
   })
 );
 
@@ -27,11 +26,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./routes/auth-routes')(app);
-require('./routes/billingRoutes')(app);
+require('./routes/billing-routes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
-  // like our main.js file, or main.css file!
   app.use(express.static('client/build'));
   const path = require('path');
   app.get('*', (req, res) => {
