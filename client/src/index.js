@@ -6,6 +6,8 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 import reducers from './reducers';
+import axios from 'axios';
+window.axios = axios;
 
 // initialize redux store with a dummy reducer
 // it looks like createStore has been replaced with configureStore

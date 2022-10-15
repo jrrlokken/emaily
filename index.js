@@ -5,6 +5,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 require('./models/User');
+require('./models/Survey');
 require('./services/passport');
 
 mongoose.connect(process.env.DATABASE_URI, () => {
@@ -27,6 +28,7 @@ app.use(passport.session());
 
 require('./routes/auth-routes')(app);
 require('./routes/billing-routes')(app);
+require('./routes/survey-routes')(app);
 
 if (process.env.NODE_ENV === 'production') {
   // Express will serve up production assets
